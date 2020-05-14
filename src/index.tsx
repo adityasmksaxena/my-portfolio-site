@@ -1,4 +1,4 @@
-import React from "react";
+import React, { StrictMode } from "react";
 import ReactDOM from "react-dom";
 import "./index.css";
 import Home from "./modules/home/index.js";
@@ -6,10 +6,10 @@ import Home from "./modules/home/index.js";
 import * as serviceWorker from "./serviceWorker";
 
 const App = () => (
-  <>
+  <StrictMode>
     <Home />
     {/* <NavBar /> */}
-  </>
+  </StrictMode>
 );
 
 ReactDOM.render(<App />, document.getElementById("root"));

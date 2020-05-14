@@ -1,12 +1,11 @@
 import styled from "styled-components";
 
+const bgColor1 = `rgba(126, 213, 111, 0.8)`;
+const bgColor2 = `rgba(40, 180, 133, 0.8)`;
+
 export default styled.header`
   height: 85vh;
-  background-image: linear-gradient(
-    to right bottom,
-    rgba(126, 213, 111, 0.8),
-    rgba(40, 180, 133, 0.8)
-  );
+  background-image: linear-gradient(to right bottom, ${bgColor1}, ${bgColor2});
   background-size: cover;
   background-position: top;
   position: relative;
@@ -19,24 +18,63 @@ export default styled.header`
   @media only screen and (min-resolution: 192dpi) and (min-width: 37.5em),
     only screen and (-webkit-min-device-pixel-ratio: 2) and (min-width: 37.5em),
     only screen and (min-width: 125em) {
-    background-image: linear-gradient(
-      to right bottom,
-      rgba(126, 213, 111, 0.8),
-      rgba(40, 180, 133, 0.8)
-    );
+    background-image: linear-gradient(to right bottom, ${bgColor1}, ${bgColor2});
   }
 
-  .header__logo-box {
-    position: absolute;
-    top: 4rem;
-    left: 4rem;
+  @keyframes rotate {
+    100% {
+      transform: rotate(1turn);
+    }
   }
-  .header__checkmark {
-    padding-right: 1rem;
+
+  .image-container {
+    position: relative;
+    z-index: 0;
+    height: 20rem;
+    width: 20rem;
+    border-radius: 50%;
+    overflow: hidden;
+    margin: auto;
+
+    &::before {
+      content: "";
+      position: absolute;
+      z-index: -2;
+      left: 0%;
+      top: 0%;
+      width: 100%;
+      height: 100%;
+      background-repeat: no-repeat;
+      background-size: 50% 50%, 50% 50%;
+      background-position: 0 0, 100% 0, 100% 100%, 0 100%;
+      background-image: linear-gradient(white, transparent),
+        linear-gradient(transparent, transparent), linear-gradient(transparent, white);
+      animation: rotate 10s linear infinite;
+    }
+
+    &:hover:before {
+      animation-play-state: paused;
+    }
+
+    .profile-image {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 98%;
+      /* height: 95%; */
+      border-radius: 50%;
+      /* border: 0.5rem solid white; */
+    }
   }
-  .header__logo {
-    height: 3.5rem;
+
+  @media only screen and (max-width: 37.5em) {
+    .image-container {
+      height: 15rem;
+      width: 15rem;
+    }
   }
+
   .header__text-box {
     position: absolute;
     top: 40%;
@@ -45,13 +83,19 @@ export default styled.header`
     text-align: center;
   }
 
-  .heading-primary {
+  .heading {
     color: #fff;
     text-transform: uppercase;
     backface-visibility: hidden;
     margin-bottom: 6rem;
   }
-  .heading-primary--main {
+  @media only screen and (max-width: 37.5em) {
+    .heading {
+      width: 32rem;
+      margin-bottom: 3rem;
+    }
+  }
+  .heading--main {
     display: block;
     font-size: 6rem;
     font-weight: 400;
@@ -62,12 +106,12 @@ export default styled.header`
       */
   }
   @media only screen and (max-width: 37.5em) {
-    .heading-primary--main {
+    .heading--main {
       letter-spacing: 1rem;
       font-size: 3rem;
     }
   }
-  .heading-primary--sub {
+  .heading--sub {
     display: inline-block;
     font-size: 2rem;
     font-weight: 700;
@@ -75,7 +119,7 @@ export default styled.header`
     animation: moveInRight 1s ease-out;
   }
   @media only screen and (max-width: 37.5em) {
-    .heading-primary--sub {
+    .heading--sub {
       letter-spacing: 0.5rem;
       font-size: 1.5rem;
     }
@@ -109,54 +153,27 @@ export default styled.header`
     animation-name: rubberBand;
   }
 
-  /* @keyframes pulse {
-    0% {
-      transform: scale(1);
-    }
-    50% {
-      transform: scale(1.1);
-    }
-    100% {
-      transform: scale(1);
-    }
+  .sub-heading-box {
+    min-height: 5rem;
   }
 
-  .pulse {
-    animation-name: pulse;
-    animation-duration: 1s;
-  } */
+  .check-mark {
+    padding-right: 1rem;
+  }
 
-  /* .heading-secondary {
-    font-size: 3.5rem;
-    text-transform: uppercase;
-    font-weight: 700;
+  .heading--sub {
     display: inline-block;
-    background-image: linear-gradient(to right, #7ed56f, #28b485);
-    -webkit-background-clip: text;
-    color: transparent;
-    letter-spacing: 0.2rem;
-    transition: all 0.2s;
-  }
-  @media only screen and (max-width: 56.25em) {
-    .heading-secondary {
-      font-size: 3rem;
-    }
+    font-size: 2rem;
+    font-weight: 700;
+    letter-spacing: 0.8rem;
+    animation: moveInRight 1s ease-out;
   }
   @media only screen and (max-width: 37.5em) {
-    .heading-secondary {
-      font-size: 2.5rem;
+    .heading--sub {
+      letter-spacing: 0.5rem;
+      font-size: 1.5rem;
     }
   }
-  .heading-secondary:hover {
-    transform: skewY(2deg) skewX(15deg) scale(1.1);
-    text-shadow: 0.5rem 1rem 2rem rgba(0, 0, 0, 0.2);
-  }
-
-  .heading-tertiary {
-    font-size: 1.6rem;
-    font-weight: 700;
-    text-transform: uppercase;
-  } */
 
   .btn,
   .btn:link,
@@ -195,14 +212,6 @@ export default styled.header`
   }
   .btn--white::after {
     background-color: #fff;
-  }
-
-  .btn--green {
-    background-color: #55c57a;
-    color: #fff;
-  }
-  .btn--green::after {
-    background-color: #55c57a;
   }
 
   .btn::after {
