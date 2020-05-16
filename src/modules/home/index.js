@@ -12,7 +12,7 @@ import {
 const Home = () => {
   const headingPrimaryMainNode = useRef(null);
 
-  const onHeadingPrimaryMainMouseEnter = () => {
+  const onHeadingMainMouseEnter = () => {
     const domNode = headingPrimaryMainNode.current;
     const classList = Array.from(domNode.classList);
     if (!classList.includes(CLASS_NAME.animated)) {
@@ -32,7 +32,7 @@ const Home = () => {
         <h1 className="heading">
           <span
             className="heading--main"
-            onMouseEnter={onHeadingPrimaryMainMouseEnter}
+            onMouseEnter={onHeadingMainMouseEnter}
             ref={headingPrimaryMainNode}
           >
             aditya saxena

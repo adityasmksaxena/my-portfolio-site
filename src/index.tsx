@@ -1,14 +1,14 @@
 import React, { StrictMode } from "react";
 import ReactDOM from "react-dom";
 import "./index.css";
-import Home from "./modules/home/index.js";
-// import NavBar from "./modules/navigation/index.js";
+import Home from "./modules/home";
+import Navigation from "./modules/navigation";
 import * as serviceWorker from "./serviceWorker";
 
 const App = () => (
   <StrictMode>
+    <Navigation />
     <Home />
-    {/* <NavBar /> */}
   </StrictMode>
 );
 
