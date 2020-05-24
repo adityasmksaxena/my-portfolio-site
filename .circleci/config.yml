@@ -10,21 +10,16 @@ jobs:
           keys:
             - v1-dependencies-{{ checksum "package.json" }}
             - v1-dependencies-
-      - run: echo "running npm install"
       - run: npm i
       - save_cache:
           paths:
             - node_modules
           key: v1-dependencies-{{ checksum "package.json" }}
-      - run: echo "running tests"
       - run: npm run test
       - run: CI=true npm run build
-      - run: echo "build successful"
-      - run: echo "deploying"
       - run:
           name: Firebase Deploy
           command: ./node_modules/.bin/firebase deploy --token "$FIREBASE_TOKEN" --only hosting
-      - run: echo "deployment successful"
 workflows:
   version: 2
   build_deploy:

@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled from "@emotion/styled";
 
 export default styled.button`
   background-color: #fff;
@@ -13,6 +13,7 @@ export default styled.button`
   text-align: center;
   cursor: pointer;
   outline: none;
+  border: 0;
 
   @media only screen and (max-width: 56.25em) {
     top: 4rem;

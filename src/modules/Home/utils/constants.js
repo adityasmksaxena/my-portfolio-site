@@ -1,5 +1,4 @@
-export const RESUME_VIEW_LINK =
-  "https://drive.google.com/file/d/1-Zhq8dRLVV_sgw57U8FIoCs20aFM9mmV/view";
+export const RESUME_VIEW_LINK = "https://resume.adityasaxena.dev";
 
 export const ANIMATION_DELAY_MS = 3000;
 

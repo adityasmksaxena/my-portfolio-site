@@ -1,9 +1,7 @@
-import styled from "styled-components";
+import styled from "@emotion/styled";
 
-export default styled.div`
-  .navigation__item {
-    margin: 1rem;
-  }
+export default styled.li`
+  margin: 1rem;
 
   .navigation__link:link,
   .navigation__link:visited {

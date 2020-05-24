@@ -9,6 +9,6 @@ export const NAV_MENUS_CONFIG = [
   },
   {
     text: "download resume",
-    href: "https://drive.google.com/uc?export=download&id=1-Zhq8dRLVV_sgw57U8FIoCs20aFM9mmV",
+    href: "https://downloadresume.adityasaxena.dev",
   },
 ];

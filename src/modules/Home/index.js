@@ -1,6 +1,6 @@
-import myPic from "images/aditya_saxena.jpg";
+import { Delay, Reset, Typing } from "components/TypingAnimation";
 import React, { Fragment, useRef } from "react";
-import Typing, { Delay, Reset } from "react-typing-animation";
+import ImageMain from "./components/ImageMain";
 import StyledHeader from "./style";
 import {
   ANIMATION_DELAY_MS,
@@ -25,10 +25,8 @@ const Home = () => {
 
   return (
     <StyledHeader>
-      <div className="header__text-box">
-        <div className="image-container">
-          <img className="profile-image" src={myPic} alt="Aditya Saxena" />
-        </div>
+      <div className="header__box">
+        <ImageMain />
         <h1 className="heading">
           <span
             className="heading--main"

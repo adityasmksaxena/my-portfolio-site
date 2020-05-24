@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled from "@emotion/styled";
 
 const bgColor1 = `rgba(126, 213, 111, 0.8)`;
 const bgColor2 = `rgba(40, 180, 133, 0.8)`;
@@ -36,7 +36,7 @@ export default styled.header`
     overflow: hidden;
     margin: auto;
 
-    &::before {
+    &.loaded::before {
       content: "";
       position: absolute;
       z-index: -2;
@@ -52,7 +52,7 @@ export default styled.header`
       animation: rotate 10s linear infinite;
     }
 
-    &:hover:before {
+    &.loaded:hover:before {
       animation-play-state: paused;
     }
 
@@ -75,7 +75,7 @@ export default styled.header`
     }
   }
 
-  .header__text-box {
+  .header__box {
     position: absolute;
     top: 40%;
     left: 50%;
