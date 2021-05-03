@@ -5,7 +5,9 @@ function Navigation() {
   const [open, setOpen] = useState(false);
 
   function handleNavigationButtonClick() {
-    setOpen(state => !state);
+    setOpen(state => {
+      return !state;
+    });
   }
 
   return <Wrapper open={open} handleNavigationButtonClick={handleNavigationButtonClick} />;

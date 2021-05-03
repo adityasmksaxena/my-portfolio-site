@@ -1,7 +1,7 @@
+import React from "react";
 import { keyframes } from "@emotion/core";
 import styled from "@emotion/styled";
 import PropTypes from "prop-types";
-import React from "react";
 
 const blink = keyframes`
   from, to {
@@ -20,11 +20,13 @@ const CursorSpan = styled.span`
   animation: ${blink} 1s step-end infinite;
 `;
 
-const Cursor = ({ element, className }) => (
-  <CursorSpan as={element} className={className}>
-    |
-  </CursorSpan>
-);
+const Cursor = ({ element, className }) => {
+  return (
+    <CursorSpan as={element} className={className}>
+      |
+    </CursorSpan>
+  );
+};
 
 Cursor.propTypes = {
   className: PropTypes.string,

@@ -4,7 +4,7 @@ const bgColor1 = `rgba(126, 213, 111, 0.8)`;
 const bgColor2 = `rgba(40, 180, 133, 0.8)`;
 
 export default styled.header`
-  height: 85vh;
+  height: 85%;
   background-image: linear-gradient(to right bottom, ${bgColor1}, ${bgColor2});
   background-size: cover;
   background-position: top;
@@ -13,7 +13,7 @@ export default styled.header`
   @supports (clip-path: polygon(0 0)) or (-webkit-clip-path: polygon(0 0)) {
     -webkit-clip-path: polygon(0 0, 100% 0, 100% 90vh, 0 100%);
     clip-path: polygon(0 0, 100% 0, 100% 90vh, 0 100%);
-    height: 100vh;
+    height: 100%;
   }
   @media only screen and (min-resolution: 192dpi) and (min-width: 37.5em),
     only screen and (-webkit-min-device-pixel-ratio: 2) and (min-width: 37.5em),

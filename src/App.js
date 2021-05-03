@@ -6,11 +6,13 @@ import Navigation from "./modules/Navigation";
 //   import(/* webpackChunkName: "Navigation" */ "./modules/Navigation")
 // );
 
-const App = () => (
-  <StrictMode>
-    <Navigation />
-    <Home />
-  </StrictMode>
-);
+const App = () => {
+  return (
+    <StrictMode>
+      <Navigation />
+      <Home />
+    </StrictMode>
+  );
+};
 
 export default App;

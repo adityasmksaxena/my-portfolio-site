@@ -1,5 +1,5 @@
 import React from "react";
-import StyledNavigationLink from "./style.js";
+import StyledNavigationLink from "./style";
 
 function NavLink({ href, children, ...restConfig }) {
   return (

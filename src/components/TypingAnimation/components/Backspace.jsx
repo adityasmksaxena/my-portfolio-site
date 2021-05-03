@@ -1,18 +1,21 @@
 import React from "react";
 
-const Reset = () => <noscript />;
+const Backspace = () => {
+  return <noscript />;
+};
 
-Reset.updateCursor = (cursor, { count, delay, speed }) => {
+Backspace.updateCursor = (cursor, { speed, count, delay }) => {
   return {
     ...cursor,
     numToErase: count,
     preEraseLineNum: cursor.lineNum,
     speed: speed > 0 ? speed : cursor.speed,
     delay: delay > 0 ? cursor.delay + delay : cursor.delay,
-    step: "line",
   };
 };
 
-Reset.getName = () => "Reset";
+Backspace.getName = () => {
+  return "Backspace";
+};
 
-export default Reset;
+export default Backspace;

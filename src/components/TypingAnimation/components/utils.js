@@ -20,21 +20,29 @@ const voidHTMLElements = [
   "wbr",
 ];
 
-const flatten = arr =>
-  arr.reduce(
-    (acc, item) =>
-      acc.concat(Array.isArray(item) ? Children.toArray(flatten(item)) : Children.toArray(item)),
-    []
-  );
+const flatten = arr => {
+  return arr.reduce((acc, item) => {
+    return acc.concat(
+      Array.isArray(item) ? Children.toArray(flatten(item)) : Children.toArray(item)
+    );
+  }, []);
+};
 
-const removeUndefined = arr => arr.filter(node => node !== undefined);
+const removeUndefined = arr => {
+  return arr.filter(node => {
+    return node !== undefined;
+  });
+};
 
-const isTypingComponent = struct =>
-  ["Backspace", "Delay", "Speed", "Reset"].some(
-    sub => struct.type && struct.type.getName && struct.type.getName() === sub
-  );
+const isTypingComponent = struct => {
+  return ["Backspace", "Delay", "Speed", "Reset"].some(sub => {
+    return struct.type && struct.type.getName && struct.type.getName() === sub;
+  });
+};
 
-export const randomInRange = (min, max) => Math.floor(Math.random() * (max - min + 1)) + min;
+export const randomInRange = (min, max) => {
+  return Math.floor(Math.random() * (max - min + 1)) + min;
+};
 
 export const gaussianRandomInRange = (min, max) => {
   let total = randomInRange(min, max);
@@ -54,13 +62,19 @@ export const extractText = (...args) => {
   const traverse = node => {
     if (isTypingComponent(node)) {
       return node;
-    } else if (React.isValidElement(node)) {
+    }
+    if (React.isValidElement(node)) {
       if (voidHTMLElements.indexOf(node.type) !== -1) {
         return "\n";
       }
-      return Children.map(node.props.children, child => traverse(child));
-    } else if (Array.isArray(node)) {
-      return node.map(el => traverse(el));
+      return Children.map(node.props.children, child => {
+        return traverse(child);
+      });
+    }
+    if (Array.isArray(node)) {
+      return node.map(el => {
+        return traverse(el);
+      });
     }
     return String(node);
   };
@@ -76,7 +90,8 @@ export const replaceTreeText = (tree, txt, cursor, hideCursor) => {
 
     if (isTypingComponent(node)) {
       return undefined;
-    } else if (React.isValidElement(node)) {
+    }
+    if (React.isValidElement(node)) {
       if (voidHTMLElements.indexOf(node.type) !== -1) {
         if (text.length === 1) {
           return Children.toArray([
@@ -93,10 +108,19 @@ export const replaceTreeText = (tree, txt, cursor, hideCursor) => {
           ...node.props,
           key: node.key || `Typing.${Math.random}`, // `Typing.${shortid.generate()}`,
         },
-        removeUndefined(Children.toArray(node.props.children).map(child => traverse(child, text)))
+        removeUndefined(
+          Children.toArray(node.props.children).map(child => {
+            return traverse(child, text);
+          })
+        )
       );
-    } else if (Array.isArray(node)) {
-      return removeUndefined(node.map(el => traverse(el, text)));
+    }
+    if (Array.isArray(node)) {
+      return removeUndefined(
+        node.map(el => {
+          return traverse(el, text);
+        })
+      );
     }
     return text.length === 1
       ? Children.toArray([text.shift(), hideCursor ? null : cursor])

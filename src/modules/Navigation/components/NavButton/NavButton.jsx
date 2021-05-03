@@ -1,5 +1,5 @@
-import cN from "classnames";
 import React from "react";
+import cN from "classnames";
 import StyledNavButton from "./style";
 
 const NavButton = ({ open, handleNavigationButtonClick }) => {

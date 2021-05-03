@@ -1,6 +1,8 @@
 import React from "react";
 
-const Delay = () => <noscript />;
+const Delay = () => {
+  return <noscript />;
+};
 
 Delay.updateCursor = (cursor, { ms }) => {
   return {
@@ -9,6 +11,8 @@ Delay.updateCursor = (cursor, { ms }) => {
   };
 };
 
-Delay.getName = () => "Delay";
+Delay.getName = () => {
+  return "Delay";
+};
 
 export default Delay;

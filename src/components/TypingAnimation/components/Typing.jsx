@@ -1,5 +1,6 @@
-import PropTypes from "prop-types";
 import React, { Component } from "react";
+import PropTypes from "prop-types";
+
 import Backspace from "./Backspace";
 import Cursor from "./Cursor";
 import Delay from "./Delay";
@@ -7,7 +8,7 @@ import Reset from "./Reset";
 import Speed from "./Speed";
 import { extractText, getCircularReplacer, randomize, replaceTreeText } from "./utils";
 
-const requestAnimationFrame = window.requestAnimationFrame;
+const { requestAnimationFrame } = window;
 
 class Typing extends Component {
   state = {
@@ -47,8 +48,8 @@ class Typing extends Component {
     }
   };
 
-  resetState = async () =>
-    this.updateState({
+  resetState = async () => {
+    return this.updateState({
       toType: extractText(this.props.children),
       cursor: {
         lineNum: 0,
@@ -60,6 +61,7 @@ class Typing extends Component {
         step: "char",
       },
     });
+  };
 
   beginTyping = async () => {
     const cursor = { ...this.state.cursor };
@@ -103,8 +105,8 @@ class Typing extends Component {
     return this.animateNextStep();
   };
 
-  animateNextStep = async () =>
-    new Promise(resolve => {
+  animateNextStep = async () => {
+    return new Promise(resolve => {
       setTimeout(async () => {
         const { cursor, toType } = this.state;
 
@@ -121,9 +123,10 @@ class Typing extends Component {
         resolve();
       }, this.state.cursor.delay);
     });
+  };
 
-  typeCharacter = async () =>
-    new Promise(async resolve => {
+  typeCharacter = async () => {
+    return new Promise(async resolve => {
       const toType = [...this.state.toType];
       const text = [...this.state.text];
       const cursor = { ...this.state.cursor };
@@ -145,9 +148,10 @@ class Typing extends Component {
 
       setTimeout(resolve, randomize(cursor.speed));
     });
+  };
 
-  erase = async () =>
-    new Promise(async resolve => {
+  erase = async () => {
+    return new Promise(async resolve => {
       const text = [...this.state.text];
       const cursor = { ...this.state.cursor };
 
@@ -182,6 +186,7 @@ class Typing extends Component {
 
       setTimeout(resolve, randomize(cursor.speed));
     });
+  };
 
   render() {
     const { children, className, element, cursorClassName, cursorElement, hideCursor } = this.props;

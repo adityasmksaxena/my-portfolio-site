@@ -1,6 +1,8 @@
 import React from "react";
 
-const Speed = () => <noscript />;
+const Speed = () => {
+  return <noscript />;
+};
 
 Speed.updateCursor = (cursor, { ms }) => {
   return {
@@ -9,6 +11,8 @@ Speed.updateCursor = (cursor, { ms }) => {
   };
 };
 
-Speed.getName = () => "Speed";
+Speed.getName = () => {
+  return "Speed";
+};
 
 export default Speed;
