@@ -1,7 +1,8 @@
 import React from "react";
-import StyledNavigationLink from "./style";
+import PropTypes from "prop-types";
+import { StyledNavigationLink } from "./style";
 
-function NavLink({ href, children, ...restConfig }) {
+function NavLink({ children, href, ...restConfig }) {
   return (
     <StyledNavigationLink>
       <a href={href} className="navigation__link" {...restConfig}>
@@ -10,5 +11,10 @@ function NavLink({ href, children, ...restConfig }) {
     </StyledNavigationLink>
   );
 }
+
+NavLink.propTypes = {
+  children: PropTypes.node.isRequired,
+  href: PropTypes.string.isRequired,
+};
 
 export default NavLink;

@@ -47,7 +47,7 @@ export const randomInRange = (min, max) => {
 export const gaussianRandomInRange = (min, max) => {
   let total = randomInRange(min, max);
 
-  for (let i = 0; i < 5; i++) {
+  for (let i = 0; i < 5; i += 1) {
     total += randomInRange(min, max);
   }
 
@@ -135,7 +135,7 @@ export const getCircularReplacer = () => {
   return (key, value) => {
     if (typeof value === "object" && value !== null) {
       if (seen.has(value)) {
-        return;
+        return null;
       }
       try {
         seen.add(value);

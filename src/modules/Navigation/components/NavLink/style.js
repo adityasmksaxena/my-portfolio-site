@@ -1,6 +1,6 @@
 import styled from "@emotion/styled";
 
-export default styled.li`
+export const StyledNavigationLink = styled.li`
   margin: 1rem;
 
   .navigation__link:link,

@@ -1,8 +1,9 @@
 import React, { lazy, Suspense } from "react";
+import PropTypes from 'prop-types';
 
 const withLazySuspense = promise => {
   const Component = lazy(promise);
-  return ({ showLoader = false, fallbackMessage = "", ...restProps } = {}) => {
+  const WithLazySuspense = ({ showLoader = false, fallbackMessage = "", ...restProps } = {}) => {
     const fallback = showLoader ? fallbackMessage : null;
     return (
       <Suspense fallback={fallback}>
@@ -10,6 +11,15 @@ const withLazySuspense = promise => {
       </Suspense>
     );
   };
+
+  WithLazySuspense.propTypes = {
+    showLoader: PropTypes.bool,
+    fallbackMessage: PropTypes.string,
+  }
+
+  WithLazySuspense.displayName = `WithSubscription${Component.displayName ||
+
+  return WithLazySuspense;
 };
 
 export default withLazySuspense;

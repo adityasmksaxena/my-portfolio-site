@@ -10,7 +10,13 @@ const eslintRules = {
   globals: {
     // "__": true
   },
-  plugins: ["react", "jsx-a11y", "eslint-plugin-prettier", "eslint-plugin-import-helpers"],
+  plugins: [
+    "react",
+    "jsx-a11y",
+    "eslint-plugin-prettier",
+    "eslint-plugin-import-helpers",
+    "@emotion/eslint-plugin",
+  ],
   parserOptions: {
     ecmaVersion: 6,
     sourceType: "module",
