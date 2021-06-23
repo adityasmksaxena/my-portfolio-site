@@ -5,7 +5,7 @@ export const NAV_MENUS_CONFIG = [
   },
   {
     text: "get in touch",
-    href: "/",
+    href: "mailto:adityasmksaxena@gmail.com",
   },
   {
     text: "download resume",

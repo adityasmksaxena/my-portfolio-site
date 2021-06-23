@@ -3,7 +3,7 @@ import styled from "@emotion/styled";
 const bgColor1 = `rgba(126, 213, 111, 0.8)`;
 const bgColor2 = `rgba(40, 180, 133, 0.8)`;
 
-export default styled.header`
+export const StyledHeader = styled.header`
   height: 85%;
   background-image: linear-gradient(to right bottom, ${bgColor1}, ${bgColor2});
   background-size: cover;

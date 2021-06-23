@@ -2,15 +2,18 @@ import React, { useState } from "react";
 import Wrapper from "./components/Wrapper";
 
 function Navigation() {
-  const [open, setOpen] = useState(false);
+  const [isNavigationMenuVisible, setIsNavigationMenuVisible] = useState(false);
 
-  function handleNavigationButtonClick() {
-    setOpen(state => {
-      return !state;
-    });
-  }
+  const toggleNavigationMenuVisibility = () => {
+    return setIsNavigationMenuVisible(!isNavigationMenuVisible);
+  };
 
-  return <Wrapper open={open} handleNavigationButtonClick={handleNavigationButtonClick} />;
+  return (
+    <Wrapper
+      open={isNavigationMenuVisible}
+      handleNavigationButtonClick={toggleNavigationMenuVisibility}
+    />
+  );
 }
 
 export default Navigation;

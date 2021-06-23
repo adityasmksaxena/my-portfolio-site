@@ -1,7 +1,9 @@
 import React, { Fragment, useRef } from "react";
+
 import { Delay, Reset, Typing } from "components/TypingAnimation";
+
 import ImageMain from "./components/ImageMain";
-import StyledHeader from "./style";
+import { StyledHeader } from "./style";
 import {
   ANIMATION_DELAY_MS,
   CLASS_NAME,
@@ -33,7 +35,7 @@ const Home = () => {
             onMouseEnter={onHeadingMainMouseEnter}
             ref={headingPrimaryMainNode}
           >
-            aditya saxena
+            Aditya Saxena
           </span>
           <Typing loop speed={150} className="sub-heading-box">
             <Reset count={0} />

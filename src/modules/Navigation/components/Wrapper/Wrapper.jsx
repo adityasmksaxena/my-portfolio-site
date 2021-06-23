@@ -1,5 +1,7 @@
 import React from "react";
 import cN from "classnames";
+import PropTypes from "prop-types";
+
 import { NAV_MENUS_CONFIG } from "../../utils/constants";
 import NavButton from "../NavButton";
 import NavLink from "../NavLink";
@@ -24,5 +26,10 @@ function Wrapper({ open, handleNavigationButtonClick }) {
     </StyledNavbar>
   );
 }
+
+Wrapper.propTypes = {
+  open: PropTypes.bool.isRequired,
+  handleNavigationButtonClick: PropTypes.func.isRequired,
+};
 
 export default Wrapper;
